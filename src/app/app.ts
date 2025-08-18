@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-root',
   template: `
     <main class="container mx-auto">
-      <h1>Applied Angular</h1>
+      <h1>Applied Angular Is Starting Soon</h1>
     </main>
   `,
   styles: [],
