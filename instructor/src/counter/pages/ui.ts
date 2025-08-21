@@ -1,16 +1,11 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  signal,
-  computed,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CounterStore } from '../stores/counter';
 
 @Component({
   selector: 'app-counter-ui',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
+  providers: [],
   template: `
     <div>
       <button
@@ -21,7 +16,7 @@ import { CounterStore } from '../stores/counter';
         -
       </button>
       <span>{{ store.current() }}</span>
-      <button (click)="store.increment()" class="btn btn-primary">+</button>
+      <button (click)="store.increment()" class="btn btn-success">+</button>
     </div>
     @if (store.fizzBuzz()) {
       <div class="alert alert-info">

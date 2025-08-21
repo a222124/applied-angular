@@ -29,6 +29,56 @@ const Articles = [
     link: 'https://developer.mozilla.org/',
     added: '2025-05-05T14:20:00.000Z',
   },
+  {
+    id: '5',
+    title: 'RxJS Documentation',
+    description: 'Learn about reactive programming with RxJS.',
+    link: 'https://rxjs.dev/guide/overview',
+    added: '2025-04-01T10:00:00.000Z',
+  },
+  {
+    id: '6',
+    title: 'Angular Testing Guide',
+    description: 'Learn how to test Angular applications effectively.',
+    link: 'https://angular.io/guide/testing',
+    added: '2025-03-15T10:00:00.000Z',
+  },
+  {
+    id: '7',
+    title: 'Rainer Hahnekamp YouTube',
+    description: 'YouTube channel of Rainer Hahnekamp.',
+    link: 'https://www.youtube.com/@RainerHahnekamp',
+    added: '2025-02-20T10:00:00.000Z',
+  },
+  {
+    id: '8',
+    title: 'Angular University',
+    description: 'Online courses for Angular developers.',
+    link: 'https://angular-university.io/',
+    added: '2025-01-25T10:00:00.000Z',
+  },
+  {
+    id: '9',
+    title: 'Angular Material Documentation',
+    description: 'Documentation for Angular Material components.',
+    link: 'https://material.angular.io/',
+    added: '2024-12-30T10:00:00.000Z',
+  },
+  {
+    id: '10',
+    title: 'Angular CLI Documentation',
+    description: 'Learn how to use Angular CLI for development.',
+    link: 'https://angular.io/cli',
+    added: '2024-11-05T10:00:00.000Z',
+  },
+  {
+    id: '11',
+    title: 'JasperFx YouTube',
+    description:
+      'YouTube channel of JasperFx - nothing to do with Angular, but super handsome host on some videos.',
+    link: 'https://www.youtube.com/@JasperFxSoftware',
+    added: '2024-10-01T10:00:00.000Z',
+  },
 ];
 
 export const articlesHandlers = [

@@ -1,15 +1,11 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  signal,
-  inject,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { CounterStore } from '../stores/counter';
 
 @Component({
   selector: 'app-counter-prefs',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
+  providers: [],
   template: `
     <div class="join">
       <button

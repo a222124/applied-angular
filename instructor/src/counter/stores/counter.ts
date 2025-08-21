@@ -52,6 +52,7 @@ export const CounterStore = signalStore(
   }),
   withHooks({
     onInit(store) {
+      console.log('Created A Counter Store');
       const savedState = localStorage.getItem('counter-state');
       if (savedState) {
         const actualState = JSON.parse(savedState) as unknown as CounterState;
@@ -60,6 +61,9 @@ export const CounterStore = signalStore(
       watchState(store, (state) => {
         localStorage.setItem('counter-state', JSON.stringify(state));
       });
+    },
+    onDestroy() {
+      console.log('Counter Store Destroyed');
     },
   }),
 );

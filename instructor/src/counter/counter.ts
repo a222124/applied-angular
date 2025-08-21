@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { CounterStore } from './stores/counter';
 
@@ -6,7 +6,7 @@ import { CounterStore } from './stores/counter';
   selector: 'app-counter',
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [RouterLink, RouterLinkActive, RouterOutlet],
-  providers: [CounterStore],
+  providers: [],
   template: `
     <div class="flex flex-row gap-4">
       <a
@@ -28,4 +28,6 @@ import { CounterStore } from './stores/counter';
   `,
   styles: ``,
 })
-export class Counter {}
+export class Counter {
+  store = inject(CounterStore);
+}

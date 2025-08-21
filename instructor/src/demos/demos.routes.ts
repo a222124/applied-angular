@@ -2,6 +2,8 @@ import { Routes } from '@angular/router';
 import { Demos } from './demos';
 import { BasicSignals } from './pages/basic-signals';
 import { AdvancedSignals } from './pages/advanced-signals';
+import { ServiceDemos } from './pages/service-demos';
+
 export const DEMO_ROUTES: Routes = [
   {
     path: '', // http://localhost:4200/demos
@@ -14,6 +16,11 @@ export const DEMO_ROUTES: Routes = [
       {
         path: 'advanced-signals', // http://localhost:4200/demos/advanced-signals
         component: AdvancedSignals,
+      },
+
+      {
+        path: 'services-demos',
+        component: ServiceDemos,
       },
     ],
   },
