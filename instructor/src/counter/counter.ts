@@ -1,33 +1,32 @@
-import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  signal,
+} from '@angular/core';
+import { FeatureNavLink, SectionNav } from '../shared/components';
 import { CounterStore } from './stores/counter';
-
 @Component({
   selector: 'app-counter',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, RouterLinkActive, RouterOutlet],
+  imports: [SectionNav],
   providers: [],
-  template: `
-    <div class="flex flex-row gap-4">
-      <a
-        routerLink="ui"
-        [routerLinkActive]="['underline', 'font-bold']"
-        class="btn btn-sm btn-primary "
-        >Count!</a
-      >
-      <a
-        routerLink="prefs"
-        [routerLinkActive]="['underline', 'font-bold']"
-        class="btn btn-sm btn-primary"
-        >Prefs</a
-      >
-    </div>
-    <div class="m-4 p-8">
-      <router-outlet />
-    </div>
-  `,
+  template: ` <app-section-nav [links]="links()" sectionName="Counter">
+    <p>Enjoy your counting!</p>
+  </app-section-nav>`,
   styles: ``,
 })
 export class Counter {
   store = inject(CounterStore);
+
+  links = signal<FeatureNavLink[]>([
+    {
+      label: 'Count!',
+      href: 'ui',
+    },
+    {
+      label: 'Your Preferences',
+      href: 'prefs',
+    },
+  ]);
 }

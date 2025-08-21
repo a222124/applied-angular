@@ -1,6 +1,7 @@
-import { delay, HttpResponse, http } from 'msw';
+import { delay, http, HttpResponse } from 'msw';
+import { ApiArticleItem, ArticleCreateModel } from '../articles-rxjs/types';
 
-const Articles = [
+const Articles: ApiArticleItem[] = [
   {
     id: '1',
     title: 'Angular Documentation',
@@ -86,5 +87,16 @@ export const articlesHandlers = [
     await delay(); // 100 - 200ms delay, simulating close to real world.
     // return HttpResponse.json([]);
     return HttpResponse.json(Articles);
+  }),
+  http.post('https://fake.api.com/articles', async ({ request }) => {
+    const article = (await request.json()) as unknown as ArticleCreateModel;
+    const newArticle = {
+      ...article,
+      id: crypto.randomUUID(),
+      added: new Date().toISOString(),
+    } as ApiArticleItem;
+    Articles.push(newArticle);
+    await delay(); // Simulating network delay
+    return HttpResponse.json(newArticle, { status: 201 });
   }),
 ];

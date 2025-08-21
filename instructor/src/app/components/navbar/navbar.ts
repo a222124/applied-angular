@@ -2,11 +2,12 @@ import { Component, ChangeDetectionStrategy, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NavList } from './nav-list';
 import { NavHorizontalList } from './nav-horizontal-list';
+import { NavAuthStatus } from './nav-auth-status';
 
 @Component({
   selector: 'app-navbar',
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterLink, NavList, NavHorizontalList],
+  imports: [RouterLink, NavList, NavHorizontalList, NavAuthStatus],
   template: `
     <div class="navbar bg-base-100 shadow-sm">
       <div class="navbar-start">
@@ -41,7 +42,7 @@ import { NavHorizontalList } from './nav-horizontal-list';
         <app-nav-horizontal-list [links]="links()" />
       </div>
       <div class="navbar-end">
-        <a class="btn">Button</a>
+        <app-nav-auth-status />
       </div>
     </div>
   `,
@@ -66,8 +67,16 @@ export class Navbar {
       href: '/articles',
     },
     {
+      text: 'Articles (RxJS)',
+      href: '/articles-rxjs',
+    },
+    {
       text: 'Counter',
       href: '/counter',
+    },
+    {
+      text: 'Books',
+      href: '/books',
     },
   ]);
 }

@@ -6,16 +6,22 @@ import {
   withComputed,
   withHooks,
   withMethods,
+  withProps,
   withState,
 } from '@ngrx/signals';
 
-type ByValues = 1 | 3 | 5;
+const BY_VALUES = [1, 3, 5, 42, 99] as const;
+
+export type ByValues = (typeof BY_VALUES)[number];
 type CounterState = {
   by: ByValues;
   current: number;
 };
 
 export const CounterStore = signalStore(
+  withProps(() => ({
+    byValues: BY_VALUES,
+  })),
   withState<CounterState>({
     by: 1,
     current: 0,

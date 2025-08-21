@@ -9,6 +9,7 @@ export const routes: Routes = [
   },
   {
     path: 'about',
+
     component: About,
   },
   {
@@ -25,6 +26,18 @@ export const routes: Routes = [
     path: 'articles',
     loadChildren: () =>
       import('../articles/articles.routes').then((a) => a.ARTICLES_ROUTES),
+  },
+  {
+    path: 'articles-rxjs',
+    loadChildren: () =>
+      import('../articles-rxjs/articles.routes').then(
+        (a) => a.ARTICLES_RXJS_ROUTES,
+      ),
+  },
+  {
+    path: 'books',
+    loadChildren: () =>
+      import('../books/books.routes').then((r) => r.BOOKS_ROUTES),
   },
   {
     path: '**',

@@ -9,10 +9,12 @@ import {
 
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { routes } from './app.routes';
+import { AuthStore } from '../shared/stores/auth';
 
 // this is the "global"
 export const appConfig: ApplicationConfig = {
   providers: [
+    AuthStore,
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(
       routes,
